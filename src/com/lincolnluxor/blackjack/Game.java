@@ -12,6 +12,7 @@ public class Game {
 	private boolean goodOptionInput = false;
 	private boolean activeGame = true;
 	private String inputString;
+	private char inputChar;
 	private int inputInteger = 0;
 	private Random random = new Random();
 
@@ -50,15 +51,12 @@ public class Game {
 	private Boolean getRestartInput() {
 		System.out.println("Enter \"r\" to play again or \"q\" to quit");
 		inputString = input.nextLine();
-		if (inputString.length() > 1) {
-			System.out.println("Sorry I didn't understand that response");
-			System.out.println("Enter \"r\" to play again or \"q\" to quit");
-			inputString = input.nextLine();
-		}
-		if (inputString == "r" || inputString == "R") {
+		inputChar = inputString.charAt(0);
+		if (inputChar == 'r' || inputChar == 'R') {
 			activeGame = true;
+			new Game();
 		}
-		else if (inputString == "q" || inputString == "Q") {
+		else if (inputChar == 'q' || inputChar == 'Q') {
 			activeGame = false;
 		}
 		else {
